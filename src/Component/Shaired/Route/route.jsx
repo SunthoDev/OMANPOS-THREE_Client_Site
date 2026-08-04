@@ -53,12 +53,12 @@ let route = createBrowserRouter([
             {
                 path: "NPORSUserAllInformation",
                 element: <PrivateRoute><NPORSUserAllInformation></NPORSUserAllInformation></PrivateRoute>,
-                loader: () => fetch("https://server.doscwallet.com/totalUserCount")
+                loader: () => fetch("https://server.docswallat.com/totalUserCount")
             },
             {
                 path: "UpdateUserInformation/:id",
                 element: <PrivateRoute><UpdateUserInformation></UpdateUserInformation></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://server.doscwallet.com/UpdateUserDataGet/${params?.id}`)
+                loader: ({ params }) => fetch(`https://server.docswallat.com/UpdateUserDataGet/${params?.id}`)
             },
             {
                 path: "AdminSeeAllUser",
@@ -75,4 +75,4 @@ let route = createBrowserRouter([
 
 export default route;
 
-// https://server.doscwallet.com
+// https://server.docswallat.com

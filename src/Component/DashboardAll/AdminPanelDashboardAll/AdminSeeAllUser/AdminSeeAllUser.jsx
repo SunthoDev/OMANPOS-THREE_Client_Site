@@ -10,7 +10,7 @@ const AdminSeeAllUser = () => {
     const { data: adminAllUsers = [], refetch } = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
-            const res = await fetch("https://server.doscwallet.com/users");
+            const res = await fetch("https://server.docswallat.com/users");
             return res.json();
         },
     });
@@ -19,7 +19,7 @@ const AdminSeeAllUser = () => {
     // ======================================
     let HandleAdmin = (id) => {
 
-        fetch(`https://server.doscwallet.com/AdminUpdateRoleAdmin/${id}`, {
+        fetch(`https://server.docswallat.com/AdminUpdateRoleAdmin/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())
@@ -41,7 +41,7 @@ const AdminSeeAllUser = () => {
     // ======================================
     let handleUser = (id) => {
 
-        fetch(`https://server.doscwallet.com/AdminUpdateRoleUser/${id}`, {
+        fetch(`https://server.docswallat.com/AdminUpdateRoleUser/${id}`, {
             method: "PATCH",
         })
             .then(res => res.json())
@@ -74,7 +74,7 @@ const AdminSeeAllUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://server.doscwallet.com/AdminDeleteUsers/${id}`, {
+                fetch(`https://server.docswallat.com/AdminDeleteUsers/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

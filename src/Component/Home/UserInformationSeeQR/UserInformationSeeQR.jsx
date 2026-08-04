@@ -31,7 +31,7 @@ const UserInformationSeeQR = () => {
     queryKey: ["UserMAINInfo", id],
     queryFn: async () => {
       if (!id) return null;
-      const response = await fetch(`https://server.doscwallet.com/UserMAINInfo/${id}?nocache=${Date.now()}`);
+      const response = await fetch(`https://server.docswallat.com/UserMAINInfo/${id}?nocache=${Date.now()}`);
       if (!response.ok) {
         throw new Error(`Server error: ${response.status}`);
       }
@@ -57,8 +57,8 @@ const UserInformationSeeQR = () => {
   // ===================
   // PDF all Url Find
   // ===================
-  const pdfUrlOriginal = dataUser ? `https://server.doscwallet.com/files/${dataUser.originalPDF}` : null;
-  const stampedPdfViewUrl = dataUser ? `https://server.doscwallet.com/download/attested-hq/${dataUser._id}?action=view` : null;
+  const pdfUrlOriginal = dataUser ? `https://server.docswallat.com/files/${dataUser.originalPDF}` : null;
+  const stampedPdfViewUrl = dataUser ? `https://server.docswallat.com/download/attested-hq/${dataUser._id}?action=view` : null;
 
 
   // ==============================================
@@ -312,7 +312,7 @@ const UserInformationSeeQR = () => {
           {
             ad &&
             <a
-              href={`https://server.doscwallet.com/download/attested-hq/${dataUser._id}`}
+              href={`https://server.docswallat.com/download/attested-hq/${dataUser._id}`}
               className="AttestedPDFDownloadF"
             >
               🖨️ Download as PDF

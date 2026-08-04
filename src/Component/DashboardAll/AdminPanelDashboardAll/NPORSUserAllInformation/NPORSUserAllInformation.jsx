@@ -14,7 +14,7 @@ const NPORSUserAllInformation = () => {
     // const { data: NPORSUserAllData = [] } = useQuery({
     //     queryKey: ["UserInfo"],
     //     queryFn: async () => {
-    //         const res = await fetch("https://server.doscwallet.com/UserInfo");
+    //         const res = await fetch("https://server.docswallat.com/UserInfo");
     //         return res.json();
     //     },
     // });
@@ -40,7 +40,7 @@ const NPORSUserAllInformation = () => {
 
                     // Before, Delete user PDF which is add with information 
                     // =======================================================
-                    fetch(`https://server.doscwallet.com/delete-user-pdfs/${id}`, {
+                    fetch(`https://server.docswallat.com/delete-user-pdfs/${id}`, {
                         method: "DELETE",
                     })
                         .then(res => res.json())
@@ -49,7 +49,7 @@ const NPORSUserAllInformation = () => {
                             if (data.deletedFiles.length > 0) {
                                 // After, Delete user Information 
                                 // =====================================
-                                fetch(`https://server.doscwallet.com/DeleteUserInformation/${id}`, {
+                                fetch(`https://server.docswallat.com/DeleteUserInformation/${id}`, {
                                     method: "DELETE",
                                 })
                                     .then(res => res.json())
@@ -72,7 +72,7 @@ const NPORSUserAllInformation = () => {
                     // console.log("No PDF IDs to delete");
                     // Only Delete User Information. If not have any PDF with user info.
                     // ======================================================================
-                    fetch(`https://server.doscwallet.com/DeleteUserInformation/${id}`, {
+                    fetch(`https://server.docswallat.com/DeleteUserInformation/${id}`, {
                         method: "DELETE",
                     })
                         .then(res => res.json())
@@ -126,7 +126,7 @@ const NPORSUserAllInformation = () => {
     const { data: NPORSUserAllData = [], refetch, error, isLoading } = useQuery({
         queryKey: ["UserAllDataPagination", currentPage, itemPerPage],
         queryFn: async () => {
-            const response = await fetch(`https://server.doscwallet.com/UserAllDataPagination?page=${currentPage}&limit=${itemPerPage}`);
+            const response = await fetch(`https://server.docswallat.com/UserAllDataPagination?page=${currentPage}&limit=${itemPerPage}`);
             const data = await response.json();
             return data;
             // return data.reverse();

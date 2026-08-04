@@ -93,7 +93,7 @@ const SingUp = () => {
 
                         // save user DB 
                         // ========================
-                        fetch("https://server.doscwallet.com/users", {
+                        fetch("https://server.docswallat.com/users", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json"

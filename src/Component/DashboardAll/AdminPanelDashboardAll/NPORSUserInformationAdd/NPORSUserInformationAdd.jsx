@@ -61,7 +61,7 @@ const NPORSUserInformationAdd = () => {
 
         // save user Database 
         // ==========================
-        fetch("https://server.doscwallet.com/InsertUserInfo", {
+        fetch("https://server.docswallat.com/InsertUserInfo", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -95,7 +95,7 @@ const NPORSUserInformationAdd = () => {
     const { data: userInfo = {}, refetch } = useQuery({
         queryKey: ["getWebsiteInfo"],
         queryFn: async () => {
-            const res = await fetch("https://server.doscwallet.com/getWebsiteInfo");
+            const res = await fetch("https://server.docswallat.com/getWebsiteInfo");
             return res.json();
         },
     });
@@ -137,7 +137,7 @@ const NPORSUserInformationAdd = () => {
                                 const updatedData = { name, email };
 
                                 // ২. API কল (PUT Request)
-                                const response = await fetch("https://server.doscwallet.com/AdminUpdateWebsiteInfo", {
+                                const response = await fetch("https://server.docswallat.com/AdminUpdateWebsiteInfo", {
                                     method: "PUT",
                                     headers: { "Content-Type": "application/json" },
                                     body: JSON.stringify(updatedData),

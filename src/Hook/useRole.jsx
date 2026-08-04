@@ -14,7 +14,7 @@ let useRole = () => {
         enabled: !loading && !!user?.email,
 
         queryFn: async () => {
-            const response = await fetch(`https://server.doscwallet.com/userRoleCheck/${user?.email}`);
+            const response = await fetch(`https://server.docswallat.com/userRoleCheck/${user?.email}`);
             // console.log(response)
             let data = await response.json();
             return data

@@ -52,7 +52,7 @@ const UpdateUserInformation = () => {
 
         // Update User Information From Database 
         // ==========================
-        fetch(`https://server.doscwallet.com/AdminUpdateUserInformation/${UserData?._id}`, {
+        fetch(`https://server.docswallat.com/AdminUpdateUserInformation/${UserData?._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

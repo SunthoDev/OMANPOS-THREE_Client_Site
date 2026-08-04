@@ -101,7 +101,7 @@ const NPORSUserData = ({ NporsUserData, HandleDelete }) => {
         // console.log(formData)
         setOriginalLoading(true)
         try {
-            const result = await axios.put(`https://server.doscwallet.com/Original-upload-files/${OriginalId}`, formData, {
+            const result = await axios.put(`https://server.docswallat.com/Original-upload-files/${OriginalId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -159,7 +159,7 @@ const NPORSUserData = ({ NporsUserData, HandleDelete }) => {
         // console.log(formData)
         setAttestedLoading(true)
         try {
-            const result = await axios.put(`https://server.doscwallet.com/Attested-upload-files/${AttestedId}`, formData, {
+            const result = await axios.put(`https://server.docswallat.com/Attested-upload-files/${AttestedId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
