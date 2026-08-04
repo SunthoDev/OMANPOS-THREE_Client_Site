@@ -1,0 +1,45 @@
+
+.PdfViewerLoadingParent {
+  background-color: #F5F7FA;
+}
+
+.PdfViewerLoadingParent .loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #abacaf3c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* .PdfViewerLoadingParent .loading_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1800; 
+} */
+
+.PdfViewerLoadingParent .Spinner {
+  width: 104px;
+  height: 104px;
+  border: 10px solid #3F51B5;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

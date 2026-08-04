@@ -1,0 +1,62 @@
+.SingUpParent {
+    background-color: #F0F9FF;
+}
+
+.SingUpParent .SingUp {}
+
+
+
+
+
+/* ===================================== */
+/* Right all css Start  */
+/* ===================================== */
+.SingUpParent .SingUp .MaineCard  {
+    background-color: #F9FBFD;
+    background-color: rgb(255, 255, 255, .1);
+    backdrop-filter: blur(50px);
+    border: 2px solid rgb(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+}
+
+.SingUpParent .SingUp .MaineCard  h2 {
+    font-size: 28px;
+    font-weight: 600;
+    padding: 18px;
+    text-align: center;
+    background-color: #0171D3;
+    color: white;
+}
+
+.SingUpParent .SingUp .MaineCard  .FromData {}
+
+.SingUpParent .SingUp .MaineCard  .FromData input {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.SingUpParent .SingUp .MaineCard  .FromData select {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.SingUpParent .SingUp .MaineCard  .FromData .Register {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-family: sans-serif;
+}
+
+.SingUpParent .BackHome {
+    position: absolute;
+    color: black;
+    width: 82px;
+    height: 35px;
+    -webkit-clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    background-color: #22afa3;
+    text-align: center;
+    line-height: 32px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

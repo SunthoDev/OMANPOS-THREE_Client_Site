@@ -1,0 +1,116 @@
+.EmailVerificationAlertParent {
+    background-color: #f4f4f9;
+    height: 100vh;
+}
+
+.EmailVerificationAlertParent .EmailVerificationAlert {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.EmailVerificationAlertParent .EmailVerificationAlert  .SuccessIcon {
+    width: 94px;
+    height: 94px;
+    background-color: #2DE29D;
+    line-height: 56px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+    font-weight: 200;
+    color: white;
+    border: 18px solid #cbf8e7;
+    margin: 0 auto;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+.EmailVerificationAlertParent .EmailVerificationAlert h1 {
+    font-size: 24px;
+    color: #e9bc0a;
+    text-align: center;
+    animation: pop 2s ease forwards;
+    padding-top: 4px;
+}
+.EmailVerificationAlertParent .EmailVerificationAlert p {
+    font-size: 14px;
+    color: #bdbdcb;
+    animation: pop 2s ease forwards;
+    text-align: justify;
+    padding-top: 6px;
+}
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.EmailVerificationAlertParent .EmailVerificationAlert .SuccessPayInfoAll {
+    margin: 24px 0px;
+    animation: PayInfo 4s ease forwards;
+}
+
+@keyframes PayInfo {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.EmailVerificationAlertParent .EmailVerificationAlert .SuccessPayInfoAll .PayInfo{
+    margin-top: 14px;
+}
+
+.EmailVerificationAlertParent .EmailVerificationAlert .SuccessPayInfoAll .PayInfo h4{
+    color: #ababb8;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.EmailVerificationAlertParent .EmailVerificationAlert .SuccessPayInfoAll .PayInfo h5{
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
