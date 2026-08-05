@@ -15,7 +15,7 @@ const NPORSUserData = ({ NporsUserData, HandleDelete }) => {
     let {
         TransactionNumber, PaymentID, TotalPayment, TransactionDate,
 
-        DocumentType, ApplicantName, EmailId, PhoneNumber,
+        DocumentType, ApplicantName, ApplicantPDFName, EmailId, PhoneNumber,
 
         VerifierName, VerificationStatus, VerificationDateTime,
 
@@ -31,7 +31,8 @@ const NPORSUserData = ({ NporsUserData, HandleDelete }) => {
 
     const handleVerify = (id) => {
 
-        navigate(`/User/&/page/preview/${id}`);
+        navigate(`/User/#/page/preview/${id}`);
+        // window.location.href = `/User/#/page/preview/${id}`;
 
     };
 

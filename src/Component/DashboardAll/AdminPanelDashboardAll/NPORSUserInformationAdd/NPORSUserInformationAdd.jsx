@@ -37,7 +37,7 @@ const NPORSUserInformationAdd = () => {
         let {
             TransactionNumber, PaymentID, TotalPayment, TransactionDate,
 
-            DocumentType, ApplicantName, EmailId, PhoneNumber,
+            DocumentType, ApplicantName, ApplicantPDFName, EmailId, PhoneNumber,
 
             VerifierName, VerificationStatus, VerificationDateTime,
 
@@ -48,7 +48,7 @@ const NPORSUserInformationAdd = () => {
 
             TransactionNumber, PaymentID, TotalPayment, TransactionDate,
 
-            DocumentType, ApplicantName, EmailId, PhoneNumber,
+            DocumentType, ApplicantName, ApplicantPDFName, EmailId, PhoneNumber,
 
             VerifierName, VerificationStatus, VerificationDateTime,
 
@@ -308,6 +308,20 @@ const NPORSUserInformationAdd = () => {
                         <textarea
                             name="ApplicantName"
                             {...register("ApplicantName", { required: true })}
+                            defaultValue={userInfo?.name}
+                            rows={2}
+                            className="textarea textarea-bordered focus:textarea-accent w-full bg-white rounded-xl border-slate-200 min-h-[40px]"
+                        />
+                    </div>
+
+                    {/* Applicant (PDF) Name */}
+                    <div className="form-control">
+                        <label className="label pb-2">
+                            <span className="ToyName label-text font-bold text-slate-700 uppercase tracking-wider text-xs">Applicant (PDF) Name</span>
+                        </label>
+                        <textarea
+                            name="ApplicantPDFName"
+                            {...register("ApplicantPDFName", { required: true })}
                             defaultValue={userInfo?.name}
                             rows={2}
                             className="textarea textarea-bordered focus:textarea-accent w-full bg-white rounded-xl border-slate-200 min-h-[40px]"

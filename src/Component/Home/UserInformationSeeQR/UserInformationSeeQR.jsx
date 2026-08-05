@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./UserInformationSeeQR.css";
 import logoOne from "../../../assets/logo.png";
 import logoTwo from "../../../assets/logo-two.png";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useRole from "../../../Hook/useRole";
 import LoadingComponent from "../../Shaired/LoadingComponent/LoadingComponent";
@@ -16,13 +16,33 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const UserInformationSeeQR = () => {
 
+  const location = useLocation();
   const [seeModalOne, setSeeModalOne] = useState(false);
   const [seeModalTwo, setSeeModalTwo] = useState(false);
   const [loadingPDF, setLoadingPDF] = useState(false);
   const [numPages, setNumPages] = useState(null);
   const [roles] = useRole();
   const ad = roles?.role === "admin";
-  const { id } = useParams();
+  // const { id } = useParams();
+
+
+  // =====================================================================================
+  // URL-এর Hash (#) থেকে ID ডিকোড করে বের করে নেওয়া
+  // URL: http://127.0.0.1:2000/User/#/page/preview/gLOVOYgUZEmhL9EVeio7t881%3D%3D
+  // =====================================================================================
+  const extractIdFromUrl = () => {
+    const hash = window.location.hash || location.hash;
+    if (!hash) return null;
+    
+    const parts = hash.split("/");
+    const rawId = parts[parts.length - 1]; // "gLOVOYgUZEmhL9EVeio7t881%3D%3D"
+    
+    return rawId ? decodeURIComponent(rawId) : null; // "gLOVOYgUZEmhL9EVeio7t881=="
+  };
+
+  const id = extractIdFromUrl();
+  // console.log(id)
+
 
   // =====================================================================================
   // We are received data from use params | 1st come component after load all data start

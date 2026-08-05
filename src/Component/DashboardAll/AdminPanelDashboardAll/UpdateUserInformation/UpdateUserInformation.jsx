@@ -31,7 +31,7 @@ const UpdateUserInformation = () => {
         let {
             TransactionNumberUP, PaymentIDUP, TotalPaymentUP, TransactionDateUP,
 
-            DocumentTypeUP, ApplicantNameUP, EmailIdUP, PhoneNumberUP,
+            DocumentTypeUP, ApplicantNameUP, ApplicantPDFNameUP, EmailIdUP, PhoneNumberUP,
 
             VerifierNameUP, VerificationStatusUP, VerificationDateTimeUP,
 
@@ -41,7 +41,7 @@ const UpdateUserInformation = () => {
         let allInfo = {
             TransactionNumberUP, PaymentIDUP, TotalPaymentUP, TransactionDateUP,
 
-            DocumentTypeUP, ApplicantNameUP, EmailIdUP, PhoneNumberUP,
+            DocumentTypeUP, ApplicantNameUP, ApplicantPDFNameUP, EmailIdUP, PhoneNumberUP,
 
             VerifierNameUP, VerificationStatusUP, VerificationDateTimeUP,
 
@@ -238,6 +238,24 @@ const UpdateUserInformation = () => {
                                 name="ApplicantNameUP"
                                 {...register("ApplicantNameUP", { required: true })}
                                 defaultValue={UserData?.ApplicantName}
+                                rows={2}
+                                className="textarea textarea-bordered focus:textarea-accent w-full text-black bg-white rounded-xl border-slate-200 min-h-[40px]"
+                            />
+                        </label>
+                    </div>
+
+                    {/* Applicant (PDF) Name */}
+                    {/* =========================== */}
+                    <div className=" form-control">
+                        <label className="label">
+                            <span className="ToyName label-text">Applicant (PDF) Name</span>
+                        </label>
+                        <label className=" input-group w-full">
+                            <span>{UserData?.ApplicantPDFName}</span>
+                            <textarea
+                                name="ApplicantPDFNameUP"
+                                {...register("ApplicantPDFNameUP", { required: true })}
+                                defaultValue={UserData?.ApplicantPDFName}
                                 rows={2}
                                 className="textarea textarea-bordered focus:textarea-accent w-full text-black bg-white rounded-xl border-slate-200 min-h-[40px]"
                             />
