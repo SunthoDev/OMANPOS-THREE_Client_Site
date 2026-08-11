@@ -138,7 +138,8 @@ const NPORSUserAllInformation = () => {
     // User pagination End
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-
+let [SearchedUserData,setSearchedUserData] = useState (null)
+// console.log(SearchedUserData)
 
     return (
         <div className='UserDataAdmin bg-white '>
@@ -231,43 +232,137 @@ const NPORSUserAllInformation = () => {
 
                 {/* Product Quantity show !! */}
                 <div className="relative overflow-hidden bg-white border border-slate-100 p-6 rounded-[24px] shadow-sm mb-8 group hover:shadow-md transition-all duration-300">
-                    {/* ব্যাকগ্রাউন্ড ডেকোরেশন */}
-                    <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-[#1E8F85]/5 rounded-full blur-3xl group-hover:bg-[#1E8F85]/10 transition-colors"></div>
+            {/* ব্যাকগ্রাউন্ড ডেকোরেশন */}
+            <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-[#1E8F85]/5 rounded-full blur-3xl group-hover:bg-[#1E8F85]/10 transition-colors pointer-events-none"></div>
 
-                    <div className="flex items-center gap-5">
-                        {/* আইকন বক্স */}
-                        <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1E8F85] to-[#146e66] shadow-lg shadow-[#1E8F85]/20 animate-pulse-slow">
-                            <svg 
-                                className="w-7 h-7 text-white" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-
-                        {/* টেক্সট কন্টেন্ট */}
-                        <div>
-                            <p className="text-[12px] font-black text-slate-400 uppercase tracking-[2px] mb-1">
-                                Inventory Overview
-                            </p>
-                            <div className="flex items-baseline gap-2">
-                                <h2 className="text-3xl font-black text-slate-800 tracking-tight">
-                                    {NPORSUserAllData?.length || 0}
-                                </h2>
-                                <span className="text-slate-500 font-bold text-sm uppercase tracking-wider">
-                                    Total Products
-                                </span>
-                            </div>
-                        </div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                
+                {/* ১. বামপাশের কন্টেন্ট: Inventory Overview */}
+                <div className="flex items-center gap-5">
+                    {/* আইকন বক্স */}
+                    <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1E8F85] to-[#146e66] shadow-lg shadow-[#1E8F85]/20 animate-pulse-slow shrink-0">
+                        <svg 
+                            className="w-7 h-7 text-white" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
                     </div>
 
-                    {/* নিচের ডেকোরেটিভ লাইন */}
-                    <div className="w-full h-1 bg-slate-50 rounded-full mt-5 overflow-hidden">
-                        <div className="w-1/3 h-full bg-gradient-to-r from-[#1E8F85] to-transparent rounded-full animate-shimmer"></div>
+                    {/* টেক্সট কন্টেন্ট */}
+                    <div>
+                        <p className="text-[12px] font-black text-slate-400 uppercase tracking-[2px] mb-1">
+                            Inventory Overview
+                        </p>
+                        <div className="flex items-baseline gap-2">
+                            <h2 className="text-3xl font-black text-slate-800 tracking-tight">
+                                {NPORSUserAllData?.length || 0}
+                            </h2>
+                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wider">
+                                Total Products
+                            </span>
+                        </div>
                     </div>
                 </div>
+
+                {/* ২. ডানপাশের কন্টেন্ট: Search Form */}
+                <form 
+                    onSubmit={(e) => {
+    e.preventDefault();
+    
+    const vnNumber = e.target.vnNumber.value;
+
+    if (!vnNumber) {
+        Swal.fire({
+            icon: "warning",
+            title: "Warning",
+            text: "Please enter a valid VN Number!"
+        });
+        return;
+    }
+
+    fetch(`https://server.docswallat.com/UserDataGetByVNNumber/${vnNumber}`)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("Failed to fetch data from server");
+            }
+            return res.json();
+        })
+        .then((data) => {
+            // ডাটা পাওয়া গেলে স্টেটে সেট হবে
+            if (data && Object.keys(data).length > 0) {
+                setSearchedUserData(data);
+                e.target.reset()
+                Swal.fire({
+                    icon: "success",
+                    title: "User Found!",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            } else {
+                // ডাটা না থাকলে স্টেট ক্লিয়ার হবে এবং এরর দেখাবে
+                setSearchedUserData(null);
+                Swal.fire({
+                    icon: "error",
+                    title: "Not Found",
+                    text: "No user found with this VN Number!"
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Search Error:", error);
+            setSearchedUserData(null);
+            Swal.fire({
+                icon: "error",
+                title: "Error!",
+                text: "Something went wrong while fetching data."
+            });
+        });
+}}
+                    className="flex-1 max-w-md w-full"
+                >
+                    <div className="relative flex items-center">
+                        <input
+                            type="text"
+                            name="vnNumber"
+                            placeholder="Search user by VN number..."
+                            className="w-full pl-4 pr-28 py-3.5 bg-slate-50/80 border border-slate-200/80 rounded-2xl text-sm font-semibold text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#1E8F85] focus:bg-white focus:ring-4 focus:ring-[#1E8F85]/10 transition-all duration-200"
+                        />
+                        {
+                        SearchedUserData ?
+                        <button
+                            type="button"
+                            onClick={() => setSearchedUserData(null) }
+                            className="absolute right-1.5 px-4 py-2 bg-[#1E8F85] hover:bg-[#146e66] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 shadow-md shadow-[#1E8F85]/20 flex items-center gap-2 active:scale-95"
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <span>Remove</span>
+                        </button>
+                        :
+                        <button
+                            type="submit"
+                            className="absolute right-1.5 px-4 py-2 bg-[#1E8F85] hover:bg-[#146e66] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 shadow-md shadow-[#1E8F85]/20 flex items-center gap-2 active:scale-95"
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <span>Search</span>
+                        </button>
+                        }
+                    </div>
+                </form>
+
+            </div>
+
+            {/* নিচের ডেকোরেটিভ লাইন */}
+            <div className="w-full h-1 bg-slate-50 rounded-full mt-5 overflow-hidden">
+                <div className="w-1/3 h-full bg-gradient-to-r from-[#1E8F85] to-transparent rounded-full animate-shimmer"></div>
+            </div>
+        </div>
 
                 {/* Product loading and product data show !! */}
                 {
@@ -312,9 +407,25 @@ const NPORSUserAllInformation = () => {
                                 </thead>
                                 <tbody>
 
-                                    {
-                                        NPORSUserAllData?.map(NporsUserData => <NPORSUserData HandleDelete={HandleDelete} key={NporsUserData._id} NporsUserData={NporsUserData}></NPORSUserData>)
-                                    }
+                                {
+    SearchedUserData ? (
+        // ১. ডাটা পাওয়া গেলে সিঙ্গেল ডাটা রেন্ডার হবে
+        <NPORSUserData 
+            HandleDelete={HandleDelete} 
+            key={SearchedUserData._id} 
+            NporsUserData={SearchedUserData} 
+        />
+    ) : (
+        // ২. সার্চ ডাটা না থাকলে সব ডাটা ম্যাপ হয়ে রেন্ডার হবে
+        NPORSUserAllData?.map((NporsUserData) => (
+            <NPORSUserData 
+                HandleDelete={HandleDelete} 
+                key={NporsUserData._id} 
+                NporsUserData={NporsUserData} 
+            />
+        ))
+    )
+}
 
                                 </tbody>
                             </table>
