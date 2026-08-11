@@ -215,7 +215,7 @@ const NPORSUserData = ({ NporsUserData, HandleDelete }) => {
                         size={140}
                         bgColor="white"
                         fgColor="black"
-                        value={`https://omanpost.docswallat.com/User/&/page/preview/${VerificationNo}`}
+                        value={`https://omanpost.docswallat.com/User/#/page/preview/${VerificationNo}`}
                         style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                     />
                 </div>
