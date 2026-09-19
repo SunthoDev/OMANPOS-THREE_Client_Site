@@ -43,7 +43,6 @@ const UserInformationSeeQR = () => {
   const id = extractIdFromUrl();
   // console.log(id)
 
-
   // =====================================================================================
   // We are received data from use params | 1st come component after load all data start
   // =====================================================================================

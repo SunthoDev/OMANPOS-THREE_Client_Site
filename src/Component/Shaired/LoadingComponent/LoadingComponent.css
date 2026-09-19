@@ -1,5 +1,3 @@
-
-
 .LoadingComponentParent {
   background-color: #F5F7FA;
 }
@@ -17,24 +15,12 @@
   z-index: 1000;
 }
 
-/* .loading_overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001; 
-} */
-
 .Spinner {
-  width: 104px;
-  height: 104px;
-  border: 10px solid #2B387D;
-  border-top-color: transparent;
+  width: 54px;
+  height: 54px;
+  border: 5px solid #ffffff;
+  border-bottom-color: #2366F4;
+  border-left-color: #2366F4;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
