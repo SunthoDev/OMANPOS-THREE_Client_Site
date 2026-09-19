@@ -19,11 +19,12 @@
 .Spinner {
   width: 54px;
   height: 54px;
-  border: 5px solid #ffffff;
+  border: 5px solid rgba(255,255,255,.88);
   border-bottom-color: #2366F4;
   border-left-color: #2366F4;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  box-shadow: 0 10px 24px #17213a29;
 }
 
 @keyframes spin {
