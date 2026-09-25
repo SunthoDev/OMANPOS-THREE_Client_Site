@@ -282,7 +282,7 @@ const UserInformationSeeQR = () => {
       {/* Attested Document PDF Add Start*/}
       {/* ===================================== */}
       <div className={`alertContainerTwo bg-[#F5F7FA] w-full ${seeModalTwo && "showAlertJs"}`}>
-        <div className="bg-[#F5F7FA] w-full md:w-[940px] mx-auto max-h-[100vh] overflow-y-auto overflow-x-hidden">
+        <div className="bg-[#F5F7FA] w-full md:w-[910px] mx-auto max-h-[100vh] overflow-y-auto overflow-x-hidden">
           <div className="flex items-center justify-center mx-auto bg-white">
             {stampedPdfViewUrl && seeModalTwo && (
               <Document
