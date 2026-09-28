@@ -250,7 +250,7 @@ const UserInformationSeeQR = () => {
       {/* Original Document PDF Add Start*/}
       {/* ===================================== */}
       <div className={`alertContainerTwo bg-[#F5F7FA] w-full  ${seeModalOne && "showAlertJs"}`}>
-        <div className="bg-[#F5F7FA] w-full md:w-[900px] mx-auto max-h-[100vh] overflow-y-auto overflow-x-hidden">
+        <div className="bg-[#F5F7FA] w-full md:w-[880px] mx-auto max-h-[100vh] overflow-y-auto overflow-x-hidden">
           <div className="flex items-center justify-center mx-auto bg-white ">
             {pdfUrlOriginal && seeModalOne && (
               <Document
@@ -266,7 +266,7 @@ const UserInformationSeeQR = () => {
                   <div key={`page_wrapper_${index}`} style={{ borderBottom: "10px solid #F5F7FA" }}>
                     <Page
                       pageNumber={index + 1}
-                      width={window.innerWidth < 768 ? window.innerWidth - 32 : 900}
+                      width={window.innerWidth < 768 ? window.innerWidth - 32 : 880}
                       renderTextLayer={false}
                       renderAnnotationLayer={false}
                     />
@@ -282,7 +282,7 @@ const UserInformationSeeQR = () => {
       {/* Attested Document PDF Add Start*/}
       {/* ===================================== */}
       <div className={`alertContainerTwo bg-[#F5F7FA] w-full ${seeModalTwo && "showAlertJs"}`}>
-        <div className="bg-[#F5F7FA] w-full md:w-[900px] mx-auto max-h-[100vh] overflow-y-auto overflow-x-hidden">
+        <div className="bg-[#F5F7FA] w-full md:w-[880px] mx-auto max-h-[100vh] overflow-y-auto overflow-x-hidden">
           <div className="flex items-center justify-center mx-auto bg-white">
             {stampedPdfViewUrl && seeModalTwo && (
               <Document
@@ -298,7 +298,7 @@ const UserInformationSeeQR = () => {
                   <div key={`page_wrapper_${index}`} style={{ borderBottom: "10px solid #F5F7FA" }}>
                     <Page
                       pageNumber={index + 1}
-                      width={window.innerWidth < 768 ? window.innerWidth - 32 : 900}
+                      width={window.innerWidth < 768 ? window.innerWidth - 32 : 880}
                       renderTextLayer={false}
                       renderAnnotationLayer={false}
                     />
